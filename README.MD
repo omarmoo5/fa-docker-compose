@@ -1,4 +1,4 @@
-# Front Accounting using Docker compose
+# Front Accounting using Docker Compose
 self-host [FrontAccounting](https://frontaccounting.com/) with no effort
 
 ## Quickstart
@@ -12,7 +12,7 @@ git clone https://github.com/FrontAccountingERP/FA --depth 1
 ```
 3- Create env file
 ```bash
-cp ./.env.example ./env
+cp ./.env.example ./.env
 ```
 4- Modify the env file
 
