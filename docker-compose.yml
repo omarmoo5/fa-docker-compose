@@ -1,0 +1,26 @@
+services:
+  db:
+    image: mariadb:12
+    container_name: db
+    restart: always
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-u", "root", "--password=dirtypassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./db:/var/lib/mysql
+  
+  app:
+    image: omarmokhtar99/frontaccounting-php-apache
+    container_name: app
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./FA:/var/www/html
+    ports:
+      - "81:80"
