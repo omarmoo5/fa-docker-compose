@@ -14,8 +14,8 @@ git clone https://github.com/FrontAccountingERP/FA --depth 1 && sudo chown -R 33
 ```bash
 cp ./.env.example ./.env && nano ./.env
 ```
-5- Run the app
+4- Run the app
 ```bash
 docker compose up -d
 ```
-6- [Visit Here](http://localhost:81)
+5- [Visit Here](http://localhost:81)
