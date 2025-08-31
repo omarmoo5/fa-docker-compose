@@ -8,15 +8,11 @@ git clone https://github.com/omarmoo5/fa-docker-compose.git --depth 1 && cd ./fa
 ```
 2- Clone FA Official Repo
 ```bash
-git clone https://github.com/FrontAccountingERP/FA --depth 1
+git clone https://github.com/FrontAccountingERP/FA --depth 1 && sudo chown -R 33 ./FA
 ```
 3- Create env file
 ```bash
-cp ./.env.example ./.env
-```
-4- Modify the env file
-```bash
-nano ./.env
+cp ./.env.example ./.env && nano ./.env
 ```
 5- Run the app
 ```bash
