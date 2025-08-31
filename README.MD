@@ -15,7 +15,9 @@ git clone https://github.com/FrontAccountingERP/FA --depth 1
 cp ./.env.example ./.env
 ```
 4- Modify the env file
-
+```bash
+nano ./.env
+```
 5- Run the app
 ```bash
 docker compose up -d
