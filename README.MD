@@ -22,4 +22,5 @@ docker compose up -d
 
 | Variable | Value |
 |----------|-------|
-| DB       | fa-db |
+| DB url   |    db |
+| DB name  | fa-db |
