@@ -8,7 +8,7 @@ services:
     env_file:
       - .env
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping"]
+      test: ["CMD", "mariadb-admin", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
