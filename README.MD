@@ -19,3 +19,7 @@ cp ./.env.example ./.env && nano ./.env
 docker compose up -d
 ```
 5- [Visit Here](http://localhost:81)
+
+| Variable | Value |
+|----------|-------|
+| DB       | fa-db |
