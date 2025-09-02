@@ -4,7 +4,7 @@ services:
     container_name: db
     restart: always
     environment:
-      - MARIADB_DATABASE:fa-db
+      - MYSQL_DATABASE=fa-db
     env_file:
       - .env
     healthcheck:
