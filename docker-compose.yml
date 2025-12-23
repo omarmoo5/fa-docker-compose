@@ -1,7 +1,6 @@
 services:
   db:
     image: mariadb:12
-    container_name: db
     restart: always
     environment:
       - MYSQL_DATABASE=fa-db
@@ -14,15 +13,34 @@ services:
       retries: 5
     volumes:
       - ./db:/var/lib/mysql
+    ports:
+      - "3310:3306"
+    networks:
+      - internal
   
   app:
-    image: omarmokhtar99/frontaccounting-php-apache
-    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: omarmokhtar99/fa
     restart: always
     depends_on:
       db:
         condition: service_healthy
     volumes:
-      - ./FA:/var/www/html
-    ports:
-      - "80:80"
+      # - ./FA:/var/www/html
+      # Uncomment the lines below to use persistent storage for specific directories/files
+      - ./FA/tmp:/var/www/html/tmp
+      - ./FA/modules:/var/www/html/modules
+      - ./FA/config.php:/var/www/html/config.php
+      - ./FA/config_db.php:/var/www/html/config_db.php
+      - ./FA/company:/var/www/html/company
+    networks:
+      - npm
+      - internal
+
+networks:
+  npm:
+    external: true
+  internal:
+    driver: bridge
